@@ -1,13 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap");
 
-:root{
-  --colorLetra: #fff;
-  --fondo: #000b;
-  --hoverr: orangered;
-  --colorBuscar: #cac7ff;
-  --fondoBuscar: #58629b;
-}
-
 *{
   margin: 0;
   padding: 0;
@@ -16,25 +8,38 @@
   list-style: none;
   text-decoration: none;
   color: var(--colorLetra);
-  font-size: 1rem;
+
+}
+
+:root{
+  --colorLetra: #fff;
+  --fondo: #000b;
+  --hoverr: orangered;
+  --colorBuscar: #cac7ff;
+  --fondoBuscar: #58629b;
 }
 
 body{
   width: 100%;
   height: 100vh;
   background-color: var(--fondo);
-  background-image: url(../assets/img/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg);
+  /* background-image: url(../assets/img/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg);
   background-repeat: no-repeat;
   background-position:center;
-  background-size: cover;
+  background-size: cover; */
 }
 
 a:hover{
   color: var(--hoverr);
 }
+ /* //-----------------------------header------------------------------- */
+
 
 header{
+  font-size: 1rem;
+  background: var(--fondo);
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   position: fixed;
   padding: 5px 2rem;
@@ -86,16 +91,75 @@ input{
   color: var(--colorBuscar);
 }
 
-button i{
+ .btn i{
   width: 30px;
- 
 }
 
-button{
+.btn{
   border: none;
   border-radius: 50%;
   width: 30px;
   height: 30px;
   background: var(--fondoBuscar);
   cursor: pointer;
+}
+
+/* //--------------------------------Section Card----------- */
+
+
+section{
+  /* border: 1px solid greenyellow; */
+  padding: 20px;
+}
+
+.container {
+   margin-top: 100px;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
+   padding: 24px;
+   /*
+   flex-direction: column; */
+   justify-content: center;
+   /* border: 1px solid red; */
+}
+
+ .card {
+  width: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 10px;
+  border: 1px solid rgb(224, 224, 249);
+  box-shadow: 0 0 20px rgba(44, 8, 246, 0.8);
+  border-radius: 6px;
+  padding: 10px;
+
+}
+
+.movie {
+  border: 1px solid black;
+  border-radius: 6px;
+  width: 150px;
+}
+
+.btnMore{
+  background: transparent;
+  color: var(--colorBuscar);
+  border-radius: 10px;
+  border: none;
+  border: 1px solid rgb(224, 224, 249);
+  box-shadow: 0 0 20px rgba(248, 244, 244, 0.9);
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.btnMore:hover{
+  background: var(--fondo);
+  color: var(--colorLetra);
+  transition: 1s;
 }
