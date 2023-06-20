@@ -43,7 +43,7 @@ const getDataMovie = async (apiId,apiDirector) => {
      const dataMovie = await responseMovie.json();    
        
     
-    //console.log(dataMovie.title);
+    //console.log(dataMovie.id);
     
     container.innerHTML = `
           <div class="card">
@@ -53,8 +53,9 @@ const getDataMovie = async (apiId,apiDirector) => {
                           <p>Duración: ${dataMovie.runtime} Minutos</p>
                           <div class="director"> </div>
                           <p>Sinopsis: ${dataMovie.overview}</p>
-                      <div>
-                          <a href=""><button class="btnMore" type="button">Add to Favorites</button></a>
+                      <div class="favorite">
+                          <a href=""><button class="btnMore" type="button" onClick="saveMovie('${dataMovie.id}','${apiImage + dataMovie.poster_path}','${dataMovie.title}')" >Add to Favorites</button></a>
+                          <p></p>
                       </div>
           </div>
                `;
@@ -72,7 +73,14 @@ const getDataMovie = async (apiId,apiDirector) => {
     
     //console.log(director);
     
+    const favorite = document.querySelector(".favorite button");
 
+    //console.log(favorite);
+
+    favorite.addEventListener("click", (e) => {
+      e.preventDefault();
+      //console.log("hola");
+    });
 
     
   } catch (error) {
@@ -82,10 +90,46 @@ const getDataMovie = async (apiId,apiDirector) => {
 
 getDataMovie(apiId,apiDirector);
 
+//------------------------------Gardar en lacalStore------------------
+const saveMovie = async (id, img, title) => {
+  
+  // console.log(apiIdMovie);
+  //  const responseId = await fetch(apiId);
+  //  const dataId = await responseId.json();
+
+  //console.log(dataId);
+  //console.log(id);
+
+
+  const movie = JSON.parse(localStorage.getItem("movie")) || [];
+  const repeated =  movie.find(newMovie => newMovie.id === id);
+
+  if (repeated) {
+    localStorage.setItem("movie", JSON.stringify(movie));
+    const message = document.querySelector(".favorite p");
+    message.innerHTML = ` Pelicula ya esta esta en favotiries`;
+      console.log(message);
+  
+    } else {
+      const moveData = {
+        id: id,
+        img: img,
+        title: title
+      };
+      movie.push(moveData);
+      localStorage.setItem("movie", JSON.stringify(movie));
+    }
+  
+};
 
 
 
- 
+
+
+
+
+//saveMovie(apiId);
+
 
 
 
