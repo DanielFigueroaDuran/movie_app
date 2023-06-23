@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Document</title>
+</head>
+<body>
+      <main>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="../assets/img/jeremy-yap-J39X2xX_8CQ-unsplash.jpg" alt=""></a>
+            </div>
+
+            <ul class="links">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="addmovie.html">Add Movie</a></li>
+              <li><a href="./favourites.html">Favourites</a></li>              
+            </ul>
+
+            <div class="toggle">
+                <input id="buscar" name="buscar" type="text" placeholder="Buscar">                
+                <button class="btn" id="btn" type="submit">                  
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+          
+            </div>
+        </nav>
+    </header>
+
+    <section>
+       <div class="wrapper">
+            <div class="title">
+                    <h2>AddMovies</h2>
+              <form action="">
+                  <div class="input-box">            
+                    <input type="text" name="title" id="title" />
+                    <label for="title">Título</label>
+                  </div>
+                
+                  <div class="input-box">            
+                    <input type="file" name="image" id="image"/>
+                    <label for="image"> </label>
+                  </div>
+                
+                  <div class="input-box date">
+                      <!-- <label for="date">Date</label>
+                      <input type="date" value="2017-06-01" /> -->
+                      <input type="date" id="datemax" name="datemax" max="1979-12-31">
+                      <label for="datemax">Enter a date before 1980-01-01:</label>
+  
+                  </div>
+                             
+                      
+                  <button type="submit" class="bt">Add</button>
+                      
+                  
+              </form>
+            </div>
+          
+      </div> 
+    </section>
+    
+  </main>  
+</body>
+</html>
