@@ -6,8 +6,6 @@
 const movieName = document.querySelector("#buscar");
 const button = document.querySelector("#btn");
 const container = document.querySelector(".container");
-//console.log(cardGroup);
-
 
 
 const apiUrl = 'https://api.themoviedb.org/3';
@@ -33,7 +31,7 @@ const getDataName = async (apiName) => {
         const response = await fetch(apiName);
         const dataApi = await response.json();
       const dataMovies = dataApi.results; 
-      console.log(dataApi);
+      //console.log(dataApi);
       
         
       

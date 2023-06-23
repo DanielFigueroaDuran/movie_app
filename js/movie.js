@@ -14,13 +14,21 @@ const apiId = `https://api.themoviedb.org/3/movie/${idMovie}?api_key=ef425755653
  
 const apiImage = 'https://image.tmdb.org/t/p/original'; 
 const apiDirector = `https://api.themoviedb.org/3/movie/${idMovie}/credits?api_key=${apiKey}`
+const apiTrailer = `https://api.themoviedb.org/3/movie/${idMovie}/videos?api_key=${apiKey}`;
 
-const getDataMovie = async (apiId,apiDirector) => {
+const getDataMovie = async (apiId, apiDirector) => {
   
-  //console.log(apiDirector);
- 
+  
   //console.log(url);
   try {
+
+    //console.log(apiTrailer);
+
+    // const responseTrailer = await fetch(apiTrailer);
+    // const dataTrailer = await responseTrailer.json();
+    // console.log(dataTrailer.results);
+    // console.log(dataTrailer.results[0].site);
+
     //------------------------Buscando Director-------------------------------------------
 
       const responseDirector = await fetch(apiDirector);
@@ -54,14 +62,17 @@ const getDataMovie = async (apiId,apiDirector) => {
                           <div class="director"> </div>
                           <p>Sinopsis: ${dataMovie.overview}</p>
                       <div class="favorite">
-                          <a href=""><button class="btnMore" type="button" onClick="saveMovie('${dataMovie.id}','${apiImage + dataMovie.poster_path}','${dataMovie.title}')" >Add to Favorites</button></a>
+                          <a href=""><button class="btnMore" type="button">Add to Favorites</button></a>
                           <p></p>
                       </div>
           </div>
                `;
                          
     const directores = document.querySelector(".director");   
-
+    const btnMore = document.querySelector(".btnMore");
+    btnMore.addEventListener("click", () => {
+        saveMovie(dataMovie.id,apiImage + dataMovie.poster_path,dataMovie.title,dataMovie.release_date)
+    })
     
     const director = arrdirector.forEach(e => {
       
@@ -77,10 +88,10 @@ const getDataMovie = async (apiId,apiDirector) => {
 
     //console.log(favorite);
 
-    favorite.addEventListener("click", (e) => {
-      e.preventDefault();
-      //console.log("hola");
-    });
+    // favorite.addEventListener("click", (e) => {
+      
+    //   //console.log("hola");
+    // });
 
     
   } catch (error) {
@@ -88,37 +99,36 @@ const getDataMovie = async (apiId,apiDirector) => {
   }
 };
 
-getDataMovie(apiId,apiDirector);
+getDataMovie(apiId,apiDirector,apiTrailer);
 
 //------------------------------Gardar en lacalStore------------------
-const saveMovie = async (id, img, title) => {
+export const saveMovie = async (id, img, title,date) => {
   
-  // console.log(apiIdMovie);
-  //  const responseId = await fetch(apiId);
-  //  const dataId = await responseId.json();
-
-  //console.log(dataId);
-  //console.log(id);
-
-
+ 
   const movie = JSON.parse(localStorage.getItem("movie")) || [];
   const repeated =  movie.find(newMovie => newMovie.id === id);
 
   if (repeated) {
-    localStorage.setItem("movie", JSON.stringify(movie));
-    const message = document.querySelector(".favorite p");
-    message.innerHTML = ` Pelicula ya esta esta en favotiries`;
-      console.log(message);
+    localStorage.setItem("movie", JSON.stringify(movie));    
+      const message = document.querySelector(".favorite p");
+      message.innerHTML = `La Pelicula ya se encuentra en favoritos`;
+    //console.log(message);
+    setTimeout(() => {
+  message.innerHTML = ''
+},4000)
   
     } else {
+      //message.innerHTML = ` Pelicula agregada`;
       const moveData = {
         id: id,
         img: img,
-        title: title
+        title: title,
+        date: date
       };
       movie.push(moveData);
       localStorage.setItem("movie", JSON.stringify(movie));
-    }
+  }
+  
   
 };
 

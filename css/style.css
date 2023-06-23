@@ -20,14 +20,9 @@
 }
 
 body{
+  
   background: #000;
-  width: 100%;
-  height: 100vh;
-  /* background-color: var(--fondo); */
-  /* background-image: url(../assets/img/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg);
-  background-repeat: no-repeat;
-  background-position:center;
-  background-size: cover; */
+
 }
 
 a:hover{
@@ -37,7 +32,8 @@ a:hover{
 
 
 header{
-  font-size: 15px;
+  
+  font-size: 20px;
   /* background: var(--fondo); */
   display: flex;
   flex-wrap: wrap;
@@ -48,9 +44,13 @@ header{
   
 }
 
-.logo a{
-  font-size: 1.5rem;
-  font-weight: bold;
+a img{
+  background: transparent;
+  margin-top: 50px;
+  width: 80px;
+  height: 60px;
+  border-radius: 50px;
+  transition: 0.5s;
 }
 
 nav{
@@ -92,7 +92,8 @@ input{
   color: var(--colorBuscar);
 }
 
- .btn i{
+
+  .btn i{
   width: 30px;
 }
 
@@ -103,18 +104,24 @@ input{
   height: 30px;
   background: var(--fondoBuscar);
   cursor: pointer;
-}
+} 
 
 /* //--------------------------------Section Card----------- */
 
 
 section{
+ /* margin-top: 50px; */
   /* border: 1px solid greenyellow; */
   padding: 20px;
 }
 
+main{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
 .container {
-   margin-top: 100px;
+   margin-top: 50px;
    display: flex;
    flex-wrap: wrap;
    gap: 20px;
@@ -123,6 +130,14 @@ section{
    flex-direction: column; */
    justify-content: center;
    /* border: 1px solid red; */
+  
+    /* width: 100%;
+  height: 100vh;
+  background-color: var(--fondo); 
+    background-image: url(../assets/img/merch-husey-EEZgog4AS5M-unsplash.jpg); 
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size: cover; */
 }
 
  .card {
@@ -147,20 +162,33 @@ section{
   width: 200px;
 }
 
-.btnMore{
-  background: transparent;
-  color: var(--colorBuscar);
-  border-radius: 10px;
-  border: none;
-  border: 1px solid rgb(224, 224, 249);
-  box-shadow: 0 0 20px rgba(248, 244, 244, 0.9);
+
+ .btnMore {
+  font-weight: 500;
   padding: 0.5rem;
+  background: transparent;
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 1.1em;
+  color: var(--colorLetra);
+  box-shadow: 0 0 20px rgba(248, 244, 244, 0.9);
+  transition: 0.5s;
+} 
+
+.btnMore:hover {
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(179, 231, 8, 0.9);
+  color: #162938;
+  transition: 1s;
 }
 
-.btnMore:hover{
-  background: var(--fondo);
+.buttonGroup{
+  display: flex;
+  gap: 10px;
+}
+
+.item{
   color: var(--colorLetra);
-  transition: 1s;
 }
