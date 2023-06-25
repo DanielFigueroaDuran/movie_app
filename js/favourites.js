@@ -9,7 +9,7 @@ const movieData = JSON.parse(localStorage.getItem("movie"));
 //-------------------------------------------------------Paint Favorities----------------
 
 const paintMovie = (movieData) => { 
-  console.log(movieData);
+  
   movieData.forEach((e) => {
     //console.log(e.title);
     container.innerHTML += `
@@ -44,7 +44,7 @@ const paintMovie = (movieData) => {
         divCard.remove();
         
         const movieData2 = JSON.parse(localStorage.getItem("movie"));
-        console.log(movieData2.length);
+        //console.log(movieData2.length);
 
         if (movieData2.length === 0) {
           container.innerHTML = `

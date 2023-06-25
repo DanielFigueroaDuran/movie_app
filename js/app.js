@@ -10,43 +10,35 @@ const container = document.querySelector(".container");
 
 const apiUrl = 'https://api.themoviedb.org/3';
 const apiKey   = 'ef425755653455b52b557384ba45e2c1';
-const movieTrailer = `https://api.themoviedb.org/3/movie/157336?api_key=ef425755653455b52b557384ba45e2c1&append_to_response=videos,images`;
+const movieTrailer = `https://api.themoviedb.org/3/movie/157336?api_key=${apiKey}&append_to_response=videos,images`;
 const apiImage = 'https://image.tmdb.org/t/p/original'; 
 const apiPopular = `https://api.themoviedb.org/3/movie/popular?api_key=ef425755653455b52b557384ba45e2c1`;
 
 //-------------------------Peliculas Populares----------------------------
 // #region nombre
-const getDataPopular = async (url) => { 
+
+ const getDataPopular = async (url) => { 
   
   const responsePopular = await fetch(url);
   const dataPopular = await responsePopular.json();
-  console.log(dataPopular.results);
-  const carousel = document.querySelector(".carousel");
-  console.log(carousel);
+   //console.log(dataPopular.results);
+   const slides = document.querySelector(".slider-slides");
+
   
   dataPopular.results.forEach((e) => {
-    carousel.innerHTML = `
-             <div class="card">
-                        <img class="movie" src="${apiImage+e.poster_path}" alt="">
-                        <h2>Título: ${e.title}</h2>                        
-                        <p>Date: ${e.release_date}</p>                                
-              </div>  
-    `;
+    slides.innerHTML = `             
+                         <div class="slider-slide active">                        
+                            <img src="${apiImage+e.poster_path}" alt="popular">                
+                         </div> 
+                          
+                        `;                     
+                        
+  });                                                  
 
+ };
 
-   });
+ getDataPopular(apiPopular);
 
-
-};
-
-getDataPopular(apiPopular);
-
-
-//const apiImage2 = 'https://image.tmdb.org/t/p'
-
- 
-
- //https://api.themoviedb.org/3/movie/157336?api_key=ef425755653455b52b557384ba45e2c1&append_to_response=videos,images
 
  button.addEventListener("click", () => { 
    //console.log(buscar.value);
