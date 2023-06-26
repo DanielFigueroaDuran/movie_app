@@ -1,13 +1,12 @@
+// #region nombre
+
 const container = document.querySelector(".container");
 const button = document.querySelector("#btn");
-//console.log(button);
-
 
 const parameter = window.location.search;
 const newParam = new URLSearchParams(parameter);
 const idMovie = newParam.get("id");
 
-//console.log(idMovie);
 
 const apiKey   = 'ef425755653455b52b557384ba45e2c1';
 const apiId = `https://api.themoviedb.org/3/movie/${idMovie}?api_key=ef425755653455b52b557384ba45e2c1`;
@@ -22,14 +21,7 @@ const getDataMovie = async (apiId, apiDirector) => {
   //console.log(url);
   try {
 
-    //console.log(apiTrailer);
-
-    // const responseTrailer = await fetch(apiTrailer);
-    // const dataTrailer = await responseTrailer.json();
-    // console.log(dataTrailer.results);
-    // console.log(dataTrailer.results[0].site);
-
-    //------------------------Buscando Director-------------------------------------------
+     //------------------------Buscando Director-------------------------------------------
 
       const responseDirector = await fetch(apiDirector);
       const dataDirector = await responseDirector.json();
@@ -42,10 +34,8 @@ const getDataMovie = async (apiId, apiDirector) => {
           }
       });
     
-    //console.log(arrdirector);
-
-
-        //------------------------------------buscando por ID------------------------------
+    
+        //------------------------------------Buscando por ID------------------------------
     
      const responseMovie = await fetch(apiId);
      const dataMovie = await responseMovie.json();    
@@ -86,14 +76,6 @@ const getDataMovie = async (apiId, apiDirector) => {
     
     const favorite = document.querySelector(".favorite button");
 
-    //console.log(favorite);
-
-    // favorite.addEventListener("click", (e) => {
-      
-    //   //console.log("hola");
-    // });
-
-    
   } catch (error) {
     console.log('Error');
   }
@@ -139,7 +121,7 @@ export const saveMovie = async (id, img, title,date) => {
 
 
 //saveMovie(apiId);
-
+// #endregion
 
 
 

@@ -52,9 +52,8 @@ const getDataName = async (apiName) => {
     try {
         const response = await fetch(apiName);
         const dataApi = await response.json();
-      const dataMovies = dataApi.results; 
-      //console.log(dataApi);
-      
+        const dataMovies = dataApi.results; 
+      //console.log(dataApi);     
         
       
       //console.log(dataMovies[0].);

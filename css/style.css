@@ -130,6 +130,8 @@ a:hover{
 /* ------------------------Carousel----------------------------- */
 
 .slider{
+  display: flex;
+  justify-content: center;
   position: relative;
   width: 80%;
   margin: 1rem auto;
@@ -138,9 +140,12 @@ a:hover{
 }
 
 .slider-slides{
+  display: flex;
+  justify-content: center;
   top: 20px;
   position: relative;
-  height: 400px;
+  width: 800px;
+  height: 500px;
   border: 1px solid rgb(224, 224, 249);
   box-shadow: 0 0 20px rgba(244, 243, 246, 0.8);
   border-radius: 6px;
@@ -160,9 +165,9 @@ a:hover{
 
 .slider-slide img{
   height: inherit;
-  width: inherit;
+  width: 800px;
   object-fit: cover;
-   object-position: 50% 20%;/*con estos dos codigos adaptamos el tamaño de la imagen */
+   object-position: 50% 30%; /* con estos dos codigos adaptamos el tamaño de la imagen */
 }
 
 .slider-slide.active{
